@@ -5,5 +5,7 @@ This is a simple in-browser tool that can help students check their pronunciatio
 
 To use this tool, open the site and input your desired text. To pre-seed the text (especially for teachers wanting students to practice specific phrases), you can use a ?query: [https://tgmgroup.github.io/Pronunciation-Checker/index.html?text=Let's practice this text.](https://tgmgroup.github.io/Pronunciation-Checker/index.html?text=Let%27s%20practice%20this%20text.) 
 
+This tool seems to work well in Chrome-based browsers but may have some bugs on FireFox.
+
 # Credits
 This tool was built with the help of Gemini. Image by [Mohamed Hassan](https://unsplash.com/illustrations/a-person-is-recording-with-a-microphone-and-headphones-Oh3p6Wu3OOE "Mohamed Hassan on Unsplash")
