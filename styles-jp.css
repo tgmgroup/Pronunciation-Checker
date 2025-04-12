@@ -1,0 +1,475 @@
+/* styles.css */
+/* General styles */
+/* styles.css */
+
+/* ======================================== */
+/* Font Definitions                       */
+/* ======================================== */
+
+/* --- Imprima Regular --- */
+@font-face {
+	font-family: "Imprima"; /* Name you'll use in CSS */
+	src: url("/fonts/Imprima-Regular.ttf") format("truetype");
+	/* Optional: Add TTF if needed for very old browsers */
+	/* url('/fonts/Imprima-Regular.ttf') format('truetype'); */
+	font-weight: 400; /* Imprima only has Regular weight */
+	font-style: normal;
+	font-display: swap; /* Highly Recommended! See note below */
+}
+
+/* --- Klee One Regular --- */
+@font-face {
+	font-family: "Klee One";
+	src: url("/fonts/KleeOne-Regular.ttf") format("truetype");
+	/* url('/fonts/KleeOne-Regular.ttf') format('truetype'); */
+	font-weight: 400; /* 400 corresponds to Regular */
+	font-style: normal;
+	font-display: swap;
+}
+
+/* --- Klee One SemiBold --- */
+@font-face {
+	font-family: "Klee One";
+	src: url("/fonts/KleeOne-SemiBold.ttf") format("truetype");
+	/* url('/fonts/KleeOne-SemiBold.ttf') format('truetype'); */
+	font-weight: 600; /* 600 corresponds to SemiBold */
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ======================================== */
+/* 1. Define CSS Variables (Light Mode Defaults) */
+/* ======================================== */
+:root {
+	/* General */
+	--bg-color: #f4f4f4;
+	--text-color: #333;
+	--link-color: #007bff; /* Added for potential future links */
+	--link-hover-color: #0056b3; /* Added */
+
+	/* Container */
+	--container-bg: #fff;
+	--container-shadow: rgba(0, 0, 0, 0.1);
+
+	/* Inputs & Controls */
+	--input-border-color: #ccc;
+	--input-bg: #fff; /* Assuming default input bg is white */
+	--input-text-color: var(--text-color); /* Inherit text color by default */
+	--label-text-color: var(--text-color); /* Explicitly define label color */
+
+	/* Buttons */
+	--button-bg: #007bff;
+	--button-text: white;
+	--button-hover-bg: #0056b3;
+	--button-disabled-bg: #cccccc;
+	--button-disabled-text: #666; /* Added for disabled text contrast */
+	--button-disabled-cursor: not-allowed;
+
+	/* Results & Status Areas */
+	--result-area-border: #ddd;
+	--status-bg: #e9ecef;
+	--status-border: #ced4da;
+	--status-text: var(--text-color);
+	--recognition-bg: #e2e3e5;
+	--recognition-border: #d6d8db;
+	--recognition-text: var(--text-color);
+	--practice-bg: #fff3cd;
+	--practice-border: #ffeeba;
+	--practice-text: #856404;
+
+	/* Score Indicators */
+	--score-high-bg: #d4edda;
+	--score-high-border: #c3e6cb;
+	--score-high-text: #155724;
+	--score-medium-bg: #fff3cd; /* Same as practice */
+	--score-medium-border: #ffeeba; /* Same as practice */
+	--score-medium-text: #856404; /* Same as practice */
+	--score-low-bg: #f8d7da;
+	--score-low-border: #f5c6cb;
+	--score-low-text: #721c24;
+
+	/* Transitions */
+	--theme-transition: color 0.2s ease, background-color 0.2s ease,
+		border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ======================================== */
+/* 2. Define Dark Mode Variables           */
+/* ======================================== */
+
+/* --- Using System Preference --- */
+@media (prefers-color-scheme: dark) {
+	:root:not(.light-mode) {
+		/* Apply if system is dark AND no light-mode override */
+		/* General */
+		--bg-color: #121212;
+		--text-color: #e0e0e0;
+		--link-color: #64b5f6;
+		--link-hover-color: #90caf9;
+
+		/* Container */
+		--container-bg: #1e1e1e;
+		--container-shadow: rgba(255, 255, 255, 0.08); /* Lighter shadow */
+
+		/* Inputs & Controls */
+		--input-border-color: #555;
+		--input-bg: #2a2a2a;
+		--input-text-color: var(--text-color);
+		--label-text-color: var(--text-color);
+
+		/* Buttons */
+		--button-bg: #64b5f6; /* Lighter blue */
+		--button-text: #121212; /* Dark text on light blue */
+		--button-hover-bg: #90caf9;
+		--button-disabled-bg: #444444;
+		--button-disabled-text: #888;
+		--button-disabled-cursor: not-allowed;
+
+		/* Results & Status Areas */
+		--result-area-border: #444;
+		--status-bg: #2c3e50;
+		--status-border: #34495e;
+		--status-text: var(--text-color);
+		--recognition-bg: #333;
+		--recognition-border: #444;
+		--recognition-text: var(--text-color);
+		--practice-bg: #4d442a; /* Dark yellow/brown */
+		--practice-border: #665a38;
+		--practice-text: #fff3cd; /* Light yellow text */
+
+		/* Score Indicators */
+		--score-high-bg: #1a4d2e; /* Dark green */
+		--score-high-border: #2a6f47;
+		--score-high-text: #d4edda; /* Light green text */
+		--score-medium-bg: #4d442a; /* Dark yellow/brown */
+		--score-medium-border: #665a38;
+		--score-medium-text: #fff3cd; /* Light yellow text */
+		--score-low-bg: #5a2c32; /* Dark red */
+		--score-low-border: #7e3d45;
+		--score-low-text: #f8d7da; /* Light red text */
+	}
+}
+
+/* --- Using Manual Override Classes --- */
+/* Apply these variables when the specific class is on the <html> tag */
+html.dark-mode {
+	/* General */
+	--bg-color: #121212;
+	--text-color: #e0e0e0;
+	--link-color: #64b5f6;
+	--link-hover-color: #90caf9;
+	/* Container */
+	--container-bg: #1e1e1e;
+	--container-shadow: rgba(255, 255, 255, 0.08);
+	/* Inputs & Controls */
+	--input-border-color: #555;
+	--input-bg: #2a2a2a;
+	--input-text-color: var(--text-color);
+	--label-text-color: var(--text-color);
+	/* Buttons */
+	--button-bg: #64b5f6;
+	--button-text: #121212;
+	--button-hover-bg: #90caf9;
+	--button-disabled-bg: #444444;
+	--button-disabled-text: #888;
+	--button-disabled-cursor: not-allowed;
+	/* Results & Status Areas */
+	--result-area-border: #444;
+	--status-bg: #2c3e50;
+	--status-border: #34495e;
+	--status-text: var(--text-color);
+	--recognition-bg: #333;
+	--recognition-border: #444;
+	--recognition-text: var(--text-color);
+	--practice-bg: #4d442a;
+	--practice-border: #665a38;
+	--practice-text: #fff3cd;
+	/* Score Indicators */
+	--score-high-bg: #1a4d2e;
+	--score-high-border: #2a6f47;
+	--score-high-text: #d4edda;
+	--score-medium-bg: #4d442a;
+	--score-medium-border: #665a38;
+	--score-medium-text: #fff3cd;
+	--score-low-bg: #5a2c32;
+	--score-low-border: #7e3d45;
+	--score-low-text: #f8d7da;
+}
+
+/* Keep light mode explicit for manual override */
+html.light-mode {
+	/* General */
+	--bg-color: #f4f4f4;
+	--text-color: #333;
+	--link-color: #007bff;
+	--link-hover-color: #0056b3;
+	/* Container */
+	--container-bg: #fff;
+	--container-shadow: rgba(0, 0, 0, 0.1);
+	/* Inputs & Controls */
+	--input-border-color: #ccc;
+	--input-bg: #fff;
+	--input-text-color: var(--text-color);
+	--label-text-color: var(--text-color);
+	/* Buttons */
+	--button-bg: #007bff;
+	--button-text: white;
+	--button-hover-bg: #0056b3;
+	--button-disabled-bg: #cccccc;
+	--button-disabled-text: #666;
+	--button-disabled-cursor: not-allowed;
+	/* Results & Status Areas */
+	--result-area-border: #ddd;
+	--status-bg: #e9ecef;
+	--status-border: #ced4da;
+	--status-text: var(--text-color);
+	--recognition-bg: #e2e3e5;
+	--recognition-border: #d6d8db;
+	--recognition-text: var(--text-color);
+	--practice-bg: #fff3cd;
+	--practice-border: #ffeeba;
+	--practice-text: #856404;
+	/* Score Indicators */
+	--score-high-bg: #d4edda;
+	--score-high-border: #c3e6cb;
+	--score-high-text: #155724;
+	--score-medium-bg: #fff3cd;
+	--score-medium-border: #ffeeba;
+	--score-medium-text: #856404;
+	--score-low-bg: #f8d7da;
+	--score-low-border: #f5c6cb;
+	--score-low-text: #721c24;
+}
+
+/* ======================================== */
+/* 3. Apply Variables in Your CSS          */
+/* ======================================== */
+
+/* General styles */
+body {
+	font-family: sans-serif;
+	line-height: 1.6;
+	padding: 20px;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	transition: var(--theme-transition);
+
+	/* Use Imprima for the main body text, fallback to standard sans-serif */
+	font-family: "Klee One", sans-serif;
+	line-height: 1.6;
+	padding: 20px;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	transition: var(--theme-transition);
+}
+
+.container {
+	max-width: 700px;
+	margin: auto;
+	background: var(--container-bg);
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px var(--container-shadow);
+	transition: var(--theme-transition);
+}
+
+textarea {
+	width: 95%;
+	min-height: 100px;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid var(--input-border-color);
+	border-radius: 4px;
+	font-size: 1em;
+	background-color: var(--input-bg);
+	color: var(--input-text-color);
+	transition: var(--theme-transition);
+}
+
+.controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	margin-bottom: 20px;
+	align-items: center;
+}
+
+.controls label {
+	font-weight: bold;
+	margin-right: 5px;
+	color: var(--label-text-color);
+	transition: var(--theme-transition);
+}
+
+.controls select,
+.controls input[type="range"] {
+	padding: 5px;
+	border: 1px solid var(--input-border-color);
+	border-radius: 4px;
+	flex-grow: 1;
+	background-color: var(--input-bg);
+	color: var(--input-text-color);
+	transition: var(--theme-transition);
+}
+/* Specific styling might be needed for range input track/thumb in dark mode */
+
+.controls span {
+	min-width: 30px;
+	text-align: right;
+	color: var(--text-color); /* Use general text color */
+	transition: var(--theme-transition);
+}
+
+.button-group button {
+	padding: 10px 15px;
+	margin-right: 10px;
+	margin-bottom: 10px; /* Keep bottom margin for wrapping */
+	cursor: pointer;
+	background-color: var(--button-bg);
+	color: var(--button-text);
+	border: none;
+	border-radius: 4px;
+	font-size: 1em;
+	transition: background-color 0.2s ease, color 0.2s ease; /* Keep original simpler transition here */
+}
+
+.button-group button:hover:not(:disabled) {
+	background-color: var(--button-hover-bg);
+}
+
+.button-group button:disabled {
+	background-color: var(--button-disabled-bg);
+	color: var(--button-disabled-text);
+	cursor: var(--button-disabled-cursor);
+}
+
+/* Apply transitions to result areas */
+.results-area > div {
+	margin-top: 15px;
+	padding: 12px;
+	border-radius: 4px;
+	border: 1px solid var(--result-area-border);
+	transition: var(--theme-transition);
+}
+
+#status {
+	background-color: var(--status-bg);
+	border-color: var(--status-border);
+	color: var(--status-text);
+}
+
+#recognitionResult {
+	background-color: var(--recognition-bg);
+	border-color: var(--recognition-border);
+	color: var(--recognition-text);
+}
+
+#feedback {
+	font-weight: bold;
+	color: var(--text-color); /* Use general text color */
+	transition: var(--theme-transition);
+}
+
+#practiceWords {
+	background-color: var(--practice-bg);
+	border-color: var(--practice-border);
+	color: var(--practice-text);
+}
+
+.score-high {
+	background-color: var(--score-high-bg);
+	border-color: var(--score-high-border);
+	color: var(--score-high-text);
+}
+
+.score-medium {
+	background-color: var(--score-medium-bg);
+	border-color: var(--score-medium-border);
+	color: var(--score-medium-text);
+}
+
+.score-low {
+	background-color: var(--score-low-bg);
+	border-color: var(--score-low-border);
+	color: var(--score-low-text);
+}
+
+/* ======================================== */
+/* 4. Style the Toggle (Example)           */
+/* ======================================== */
+#theme-toggle {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	background-color: var(--container-bg); /* Use container bg for context */
+	color: var(--text-color);
+	border: 1px solid var(--input-border-color); /* Use input border */
+	padding: 0.5rem;
+	cursor: pointer;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.2em;
+	z-index: 1000;
+	box-shadow: 0 1px 3px var(--container-shadow); /* Subtle shadow */
+	transition: var(--theme-transition), transform 0.1s ease-out;
+}
+#theme-toggle:active {
+	transform: scale(0.95); /* Click feedback */
+}
+
+/* Example: Using text/emoji for icons */
+#theme-toggle::before {
+	content: "☀️"; /* Sun icon */
+	display: block; /* Ensure content takes space */
+	line-height: 1; /* Adjust line height if needed */
+}
+
+html.dark-mode #theme-toggle::before {
+	content: "🌙"; /* Moon icon */
+}
+
+/* Hide toggle content if using background images or SVG icons instead */
+/* #theme-toggle span { display: none; } */
+
+#floating-image {
+	position: fixed; /* Position relative to the viewport */
+	bottom: 1rem; /* Distance from the bottom edge (adjust as needed) */
+	left: 1rem; /* Distance from the left edge (adjust as needed) */
+	width: 200px; /* Set the desired width (adjust as needed) */
+	height: auto; /* Maintain aspect ratio */
+	z-index: 999; /* Ensure it's above most content, but potentially below modals/popups (adjust if needed) */
+	/* Typically slightly lower than the theme toggle's z-index if you want the toggle on top in case of overlap */
+	opacity: 0.9; /* Optional: Make it slightly transparent */
+	transition: opacity 0.2s ease, transform 0.2s ease; /* Optional: Smooth transitions */
+	border-radius: 4px; /* Optional: Slightly rounded corners */
+}
+
+/* Optional: Add a hover effect */
+#floating-image:hover {
+	opacity: 1; /* Become fully opaque on hover */
+	transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Example: Reduce padding on screens smaller than 600px */
+
+@media (max-width: 600px) {
+	body {
+		padding: 10px; /* Reduce body padding */
+	}
+	.container {
+		padding: 15px; /* Reduce container padding */
+	}
+	/* You could also adjust font sizes if needed */
+	/* body { font-size: 15px; } */
+}
+
+@media (max-width: 400px) {
+	/* Even smaller adjustments if necessary */
+	.container {
+		padding: 10px;
+	}
+}
