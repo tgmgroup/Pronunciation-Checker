@@ -448,6 +448,12 @@ html.dark-mode #theme-toggle::before {
 	border-radius: 4px; /* Optional: Slightly rounded corners */
 }
 
+/* Optional: Add a hover effect */
+#floating-image:hover {
+	opacity: 1; /* Become fully opaque on hover */
+	transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
 #language-toggle {
 	position: fixed;
 	top: 5rem;
@@ -468,6 +474,7 @@ html.dark-mode #theme-toggle::before {
 	box-shadow: 0 1px 3px var(--container-shadow); /* Subtle shadow */
 	transition: var(--theme-transition), transform 0.1s ease-out;
 }
+
 #language-toggle:active {
 	transform: scale(0.95); /* Click feedback */
 }
@@ -481,12 +488,6 @@ html.dark-mode #theme-toggle::before {
 
 html.dark-mode #language-toggle::before {
 	content: "🇯🇵"; /* JP icon */
-}
-
-/* Optional: Add a hover effect */
-#floating-image:hover {
-	opacity: 1; /* Become fully opaque on hover */
-	transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Example: Reduce padding on screens smaller than 600px */
