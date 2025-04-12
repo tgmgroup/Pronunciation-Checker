@@ -454,6 +454,41 @@ html.dark-mode #theme-toggle::before {
 	transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
+#language-toggle {
+	position: fixed;
+	top: 5rem;
+	right: 1rem;
+	background-color: var(--container-bg); /* Use container bg for context */
+	color: var(--text-color);
+	border: 1px solid var(--input-border-color); /* Use input border */
+	padding: 0.5rem;
+	cursor: pointer;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.2em;
+	z-index: 1000;
+	box-shadow: 0 1px 3px var(--container-shadow); /* Subtle shadow */
+	transition: var(--theme-transition), transform 0.1s ease-out;
+}
+#language-toggle:active {
+	transform: scale(0.95); /* Click feedback */
+}
+
+/* Example: Using text/emoji for icons */
+#language-toggle::before {
+	content: "🇯🇵"; /* JP icon */
+	display: block; /* Ensure content takes space */
+	line-height: 1; /* Adjust line height if needed */
+}
+
+html.dark-mode #language-toggle::before {
+	content: "🇺🇸"; /* US icon */
+}
+
 /* Example: Reduce padding on screens smaller than 600px */
 
 @media (max-width: 600px) {
