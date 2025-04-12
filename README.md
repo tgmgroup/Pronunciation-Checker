@@ -5,7 +5,7 @@ This is a simple in-browser tool that can help students check their pronunciatio
 
 To use this tool, open the site and input your desired text. To pre-seed the text (especially for teachers wanting students to practice specific phrases), you can use a ?query: [https://speech.isesaki.in/index.html?text=Let's practice this text.](https://speech.isesaki.in/index.html?text=Let%27s%20practice%20this%20text.) 
 
-This tool seems to work well in Chrome-based browsers but may have some bugs on FireFox.
+This tool seems to work well in Chrome-based browsers. **Microsoft Edge** users will have access to the excellent AI-powered Native voices, of which **Andrew** and **Ava** are really nice voices to use.
 
 # Credits
 This tool was built with the help of Gemini. Image by [Mohamed Hassan](https://unsplash.com/illustrations/a-person-is-recording-with-a-microphone-and-headphones-Oh3p6Wu3OOE "Mohamed Hassan on Unsplash")
