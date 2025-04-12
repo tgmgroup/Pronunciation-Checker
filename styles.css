@@ -474,7 +474,7 @@ html.dark-mode #theme-toggle::before {
 
 /* Example: Using text/emoji for icons */
 #language-toggle::before {
-	content: "🇺🇸"; /* US icon */
+	content: "🇯🇵"; /* JP icon */
 	display: block; /* Ensure content takes space */
 	line-height: 1; /* Adjust line height if needed */
 }
