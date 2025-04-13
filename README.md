@@ -7,5 +7,8 @@ To use this tool, open the site and input your desired text. To pre-seed the tex
 
 This tool seems to work well in Chrome-based browsers. **Microsoft Edge** users will have access to the excellent AI-powered Native voices, of which **Andrew** and **Ava** are really nice voices to use.
 
+![Pronunciation Checker](https://georgeliu.me/media/posts/589/responsive/pronunciation-checker-xl.png) 
+
+
 # Credits
 This tool was built with the help of Gemini. Image by [Mohamed Hassan](https://unsplash.com/illustrations/a-person-is-recording-with-a-microphone-and-headphones-Oh3p6Wu3OOE "Mohamed Hassan on Unsplash")
