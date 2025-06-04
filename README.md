@@ -24,6 +24,7 @@ This is a table of contents for your project. It helps the reader navigate throu
 - [Contribute](#contribute)
 - [License](#license)
 - [Credits](#credits)
+- [Contact](#contact)
 
 # Quick Start
 [(Back to top)](#table-of-contents)
@@ -41,28 +42,11 @@ Any donations are appreciated (please use the Github sponsor/funding buttons).
 
 Distributed under the [MIT license](./LICENSE). See [MIT License](https://opensource.org/licenses/MIT) for more information.
 
-# Contact
-[(Back to top)](#table-of-contents)
-
-Project Link: [https://github.com/tgmgroup/Sheets-and-Shorten](https://github.com/tgmgroup/Sheets-and-Shorten)
-
-
 # Credits
 [(Back to top)](#table-of-contents)
 This tool was built with the help of Gemini. Image by [Mohamed Hassan](https://unsplash.com/illustrations/a-person-is-recording-with-a-microphone-and-headphones-Oh3p6Wu3OOE "Mohamed Hassan on Unsplash")
 
+# Contact
+[(Back to top)](#table-of-contents)
 
-
-
-![Sheets and Shorten](https://github.com/tgmgroup/Sheets-and-Shorten/blob/main/header.png)
-
-# Pronunciation-Checker
-
-
-
-
-# Quick Start
-
-![Preview](https://github.com/tgmgroup/Sheets-and-Shorten/blob/main/header.png)
-
-Make a copy of this [Google Sheet](https://docs.google.com/spreadsheets/d/1xczuB_nZDTs6-9Z6fOtmDoxYlMAr7PFdpXuR7Cn6ecw/view)
+Project Link: [https://github.com/tgmgroup/Sheets-and-Shorten](https://github.com/tgmgroup/Sheets-and-Shorten)
