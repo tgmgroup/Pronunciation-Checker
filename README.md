@@ -49,4 +49,4 @@ This tool was built with the help of Gemini. Image by [Mohamed Hassan](https://u
 # Contact
 [(Back to top)](#table-of-contents)
 
-Project Link: [https://github.com/tgmgroup/Sheets-and-Shorten](https://github.com/tgmgroup/Sheets-and-Shorten)
+Project Link: [https://github.com/tgmgroup/Pronunciation-Checker](https://github.com/tgmgroup/Pronunciation-Checker)
