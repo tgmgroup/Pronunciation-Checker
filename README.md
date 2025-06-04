@@ -17,8 +17,6 @@ To use this tool, open the site and input your desired text. To pre-seed the tex
 This tool seems to work well in Chrome-based browsers. **Microsoft Edge** users will have access to the excellent AI-powered Native voices, of which **Andrew** and **Ava** are really nice voices to use.
 
 # Table of Contents
-
-This is a table of contents for your project. It helps the reader navigate through the README quickly.
 - [Project Title](#project-title)
 - [Quick Start Demo](#quick-start)
 - [Contribute](#contribute)
