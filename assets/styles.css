@@ -9,7 +9,7 @@
 /* --- Imprima Regular --- */
 @font-face {
 	font-family: "Imprima"; /* Name you'll use in CSS */
-	src: url("/fonts/Imprima-Regular.ttf") format("truetype");
+	src: url("/assets/fonts/Imprima-Regular.ttf") format("truetype");
 	/* Optional: Add TTF if needed for very old browsers */
 	/* url('/fonts/Imprima-Regular.ttf') format('truetype'); */
 	font-weight: 400; /* Imprima only has Regular weight */
@@ -20,7 +20,7 @@
 /* --- Klee One Regular --- */
 @font-face {
 	font-family: "Klee One";
-	src: url("/fonts/KleeOne-Regular.ttf") format("truetype");
+	src: url("/assets/fonts/KleeOne-Regular.ttf") format("truetype");
 	/* url('/fonts/KleeOne-Regular.ttf') format('truetype'); */
 	font-weight: 400; /* 400 corresponds to Regular */
 	font-style: normal;
@@ -30,7 +30,7 @@
 /* --- Klee One SemiBold --- */
 @font-face {
 	font-family: "Klee One";
-	src: url("/fonts/KleeOne-SemiBold.ttf") format("truetype");
+	src: url("/assets/fonts/KleeOne-SemiBold.ttf") format("truetype");
 	/* url('/fonts/KleeOne-SemiBold.ttf') format('truetype'); */
 	font-weight: 600; /* 600 corresponds to SemiBold */
 	font-style: normal;
@@ -274,6 +274,7 @@ body {
 }
 
 textarea {
+	font-family: "Klee One", sans-serif;
 	width: 95%;
 	min-height: 100px;
 	padding: 10px;
