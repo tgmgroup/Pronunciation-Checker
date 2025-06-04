@@ -1,6 +1,6 @@
 ![Pronunciation Checker](https://github.com/tgmgroup/Pronunciation-Checker/blob/main/assets/images/pronunciation-checker-xl.png) 
 
-# Pronunciation-Checker
+# Pronunciation Checker
 
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/tgmgroup/Pronunciation-Checker?include_prereleases)](https://img.shields.io/github/v/release/tgmgroup/Pronunciation-Checker?include_prereleases)
 [![GitHub last commit](https://img.shields.io/github/last-commit/tgmgroup/Pronunciation-Checker)](https://img.shields.io/github/last-commit/tgmgroup/Pronunciation-Checker)
@@ -17,8 +17,8 @@ To use this tool, open the site and input your desired text. To pre-seed the tex
 This tool seems to work well in Chrome-based browsers. **Microsoft Edge** users will have access to the excellent AI-powered Native voices, of which **Andrew** and **Ava** are really nice voices to use.
 
 # Table of Contents
-- [Project Title](#project-title)
-- [Quick Start Demo](#quick-start)
+- [Pronunciation Checker](#pronunciation-checker)
+- [Quick Start](#quick-start)
 - [Contribute](#contribute)
 - [License](#license)
 - [Credits](#credits)
