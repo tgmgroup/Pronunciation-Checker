@@ -9,7 +9,7 @@
 /* --- Imprima Regular --- */
 @font-face {
 	font-family: "Imprima"; /* Name you'll use in CSS */
-	src: url("/assets/fonts/Imprima-Regular.ttf") format("truetype");
+	src: url("../assets/fonts/Imprima-Regular.ttf") format("truetype");
 	/* Optional: Add TTF if needed for very old browsers */
 	/* url('/fonts/Imprima-Regular.ttf') format('truetype'); */
 	font-weight: 400; /* Imprima only has Regular weight */
@@ -20,7 +20,7 @@
 /* --- Klee One Regular --- */
 @font-face {
 	font-family: "Klee One";
-	src: url("/assets/fonts/KleeOne-Regular.ttf") format("truetype");
+	src: url("../assets/fonts/KleeOne-Regular.ttf") format("truetype");
 	/* url('/fonts/KleeOne-Regular.ttf') format('truetype'); */
 	font-weight: 400; /* 400 corresponds to Regular */
 	font-style: normal;
