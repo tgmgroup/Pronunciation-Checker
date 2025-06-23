@@ -40,6 +40,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		"Can you read this sentence aloud?",
 	];
 
+	// --- Preferred Voices ---
+	const PREFERRED_VOICE_NAMES = [
+		"Microsoft Ava Online (Natural) - English (United States) (en-US)",
+		"Microsoft David - English (United States) (en-US)",
+		"Google US English (en-US)",
+		"Samantha",
+		"Alex",
+	];
+
 	// =========================================
 	// == Text Loading Logic (URL Param / Sample) ==
 	// =========================================
@@ -87,11 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// --- Text-to-Speech Setup ---
 	function populateVoiceList() {
-		if (!speechSynthesis) return;
-		synthVoices = speechSynthesis.getVoices();
-		voiceSelect.innerHTML = ""; // Clear previous options
+		try {
+			synthVoices = speechSynthesis.getVoices();
+		} catch (error) {
+			console.error("Error getting voices:", error);
+			statusDiv.textContent = "Status: Error getting synthesis voices.";
+			return;
+		}
 
-		// Filter slightly - sometimes default voices are duplicated across languages
+		voiceSelect.innerHTML = "";
 		const uniqueVoices = synthVoices.filter(
 			(voice, index, self) =>
 				index ===
@@ -99,18 +112,44 @@ document.addEventListener("DOMContentLoaded", () => {
 		);
 
 		if (uniqueVoices.length === 0) {
-			statusDiv.textContent = "Status: No speech synthesis voices found.";
+			statusDiv.textContent = "Status: Speech synthesis voices found.";
 			return;
 		}
 
-		for (let i = 0; i < uniqueVoices.length; i++) {
-			const option = document.createElement("option");
-			option.textContent = `${uniqueVoices[i].name} (${uniqueVoices[i].lang})`;
-			option.setAttribute("data-lang", uniqueVoices[i].lang);
-			option.setAttribute("data-name", uniqueVoices[i].name);
-			voiceSelect.appendChild(option);
+		let firstEnglishOption = null;
+
+		uniqueVoices
+			.filter((voice) => voice.lang.startsWith("en-"))
+			.sort(
+				(a, b) => a.lang.localeCompare(b.lang) || a.name.localeCompare(b.name)
+			)
+			.forEach((voice) => {
+				const option = document.createElement("option");
+				option.textContent = `${voice.name} (${voice.lang})`;
+				option.value = voice.name;
+				voiceSelect.appendChild(option);
+				if (!firstEnglishOption) {
+					firstEnglishOption = option;
+				}
+			});
+
+		// Attempt to set a preferred default voice
+		let defaultSet = false;
+		for (const preferredName of PREFERRED_VOICE_NAMES) {
+			const preferredOption = Array.from(voiceSelect.options).find((opt) =>
+				opt.textContent.includes(preferredName)
+			);
+			if (preferredOption) {
+				preferredOption.selected = true;
+				defaultSet = true;
+				break;
+			}
 		}
-		statusDiv.textContent = "Status: Voices loaded. Ready.";
+		if (!defaultSet && firstEnglishOption) {
+			firstEnglishOption.selected = true;
+		} else if (!defaultSet && voiceSelect.options.length > 0) {
+			voiceSelect.options[0].selected = true;
+		}
 	}
 
 	// Initial population & handle dynamic changes

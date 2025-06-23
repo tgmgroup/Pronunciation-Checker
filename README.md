@@ -27,7 +27,8 @@ This tool seems to work well in Chrome-based browsers. **Microsoft Edge** users 
 # Quick Start
 [(Back to top)](#table-of-contents)
 
-Access the demo here: [Pronunciation Checker](https://tgmgroup.github.io/Pronunciation-Checker/)
+Access the Version 1 demo here: [Pronunciation Checker](https://tgmgroup.github.io/Pronunciation-Checker/)
+We're working on a Version 2 with a backend for Azure TTS and Google Translate.
 
 # Contribute
 [(Back to top)](#table-of-contents)
