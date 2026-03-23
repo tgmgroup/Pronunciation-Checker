@@ -1,0 +1,8 @@
+{
+	"name": "Isesaki.in's AI Pronunciation Coach",
+	"short_name": "Pronunciation Coach",
+	"start_url": "/index.html",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#0078d4"
+}
