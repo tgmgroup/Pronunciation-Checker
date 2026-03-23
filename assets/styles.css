@@ -1,440 +1,284 @@
-/* styles.css */
-/* General styles */
-/* styles.css */
-
 /* ======================================== */
-/* Font Definitions                       */
+/* 1. Font Definitions                      */
 /* ======================================== */
-
-/* --- Imprima Regular --- */
 @font-face {
-	font-family: "Imprima"; /* Name you'll use in CSS */
+	font-family: "Imprima";
 	src: url("../assets/fonts/Imprima-Regular.ttf") format("truetype");
-	/* Optional: Add TTF if needed for very old browsers */
-	/* url('/fonts/Imprima-Regular.ttf') format('truetype'); */
-	font-weight: 400; /* Imprima only has Regular weight */
+	font-weight: 400;
 	font-style: normal;
-	font-display: swap; /* Highly Recommended! See note below */
+	font-display: swap;
 }
 
-/* --- Klee One Regular --- */
 @font-face {
 	font-family: "Klee One";
 	src: url("../assets/fonts/KleeOne-Regular.ttf") format("truetype");
-	/* url('/fonts/KleeOne-Regular.ttf') format('truetype'); */
-	font-weight: 400; /* 400 corresponds to Regular */
+	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
-/* --- Klee One SemiBold --- */
 @font-face {
 	font-family: "Klee One";
-	src: url("/assets/fonts/KleeOne-SemiBold.ttf") format("truetype");
-	/* url('/fonts/KleeOne-SemiBold.ttf') format('truetype'); */
-	font-weight: 600; /* 600 corresponds to SemiBold */
+	src: url("../assets/fonts/KleeOne-SemiBold.ttf") format("truetype");
+	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
 }
 
 /* ======================================== */
-/* 1. Define CSS Variables (Light Mode Defaults) */
+/* 2. Variables (Unified)                   */
 /* ======================================== */
 :root {
-	/* General */
-	--bg-color: #f4f4f4;
-	--text-color: #333;
-	--link-color: #007bff; /* Added for potential future links */
-	--link-hover-color: #0056b3; /* Added */
+	--bg: #f0f2f5;
+	--card: #ffffff;
+	--text: #1c1e21;
+	--primary: #0078d4;
+	--border: #ddd;
+	--accent: #e7f3ff;
+	--sidebar-bg: #f8f9fa;
+	--danger: #dc3545;
+	--success: #28a745;
+	--theme-transition: all 0.2s ease;
+}
 
-	/* Container */
-	--container-bg: #fff;
-	--container-shadow: rgba(0, 0, 0, 0.1);
-
-	/* Inputs & Controls */
-	--input-border-color: #ccc;
-	--input-bg: #fff; /* Assuming default input bg is white */
-	--input-text-color: var(--text-color); /* Inherit text color by default */
-	--label-text-color: var(--text-color); /* Explicitly define label color */
-
-	/* Buttons */
-	--button-bg: #007bff;
-	--button-text: white;
-	--button-hover-bg: #0056b3;
-	--button-disabled-bg: #cccccc;
-	--button-disabled-text: #666; /* Added for disabled text contrast */
-	--button-disabled-cursor: not-allowed;
-
-	/* Results & Status Areas */
-	--result-area-border: #ddd;
-	--status-bg: #e9ecef;
-	--status-border: #ced4da;
-	--status-text: var(--text-color);
-	--recognition-bg: #e2e3e5;
-	--recognition-border: #d6d8db;
-	--recognition-text: var(--text-color);
-	--practice-bg: #fff3cd;
-	--practice-border: #ffeeba;
-	--practice-text: #856404;
-
-	/* Score Indicators */
-	--score-high-bg: #d4edda;
-	--score-high-border: #c3e6cb;
-	--score-high-text: #155724;
-	--score-medium-bg: #fff3cd; /* Same as practice */
-	--score-medium-border: #ffeeba; /* Same as practice */
-	--score-medium-text: #856404; /* Same as practice */
-	--score-low-bg: #f8d7da;
-	--score-low-border: #f5c6cb;
-	--score-low-text: #721c24;
-
-	/* Transitions */
-	--theme-transition: color 0.2s ease, background-color 0.2s ease,
-		border-color 0.2s ease, box-shadow 0.2s ease;
+.dark-mode {
+	--bg: #121212;
+	--card: #1e1e1e;
+	--text: #e0e0e0;
+	--border: #444;
+	--accent: #2c3e50;
+	--sidebar-bg: #181818;
 }
 
 /* ======================================== */
-/* 2. Define Dark Mode Variables           */
+/* 3. Full Screen App Shell Layout         */
 /* ======================================== */
-
-/* --- Using System Preference --- */
-@media (prefers-color-scheme: dark) {
-	:root:not(.light-mode) {
-		/* Apply if system is dark AND no light-mode override */
-		/* General */
-		--bg-color: #121212;
-		--text-color: #e0e0e0;
-		--link-color: #64b5f6;
-		--link-hover-color: #90caf9;
-
-		/* Container */
-		--container-bg: #1e1e1e;
-		--container-shadow: rgba(255, 255, 255, 0.08); /* Lighter shadow */
-
-		/* Inputs & Controls */
-		--input-border-color: #555;
-		--input-bg: #2a2a2a;
-		--input-text-color: var(--text-color);
-		--label-text-color: var(--text-color);
-
-		/* Buttons */
-		--button-bg: #64b5f6; /* Lighter blue */
-		--button-text: #121212; /* Dark text on light blue */
-		--button-hover-bg: #90caf9;
-		--button-disabled-bg: #444444;
-		--button-disabled-text: #888;
-		--button-disabled-cursor: not-allowed;
-
-		/* Results & Status Areas */
-		--result-area-border: #444;
-		--status-bg: #2c3e50;
-		--status-border: #34495e;
-		--status-text: var(--text-color);
-		--recognition-bg: #333;
-		--recognition-border: #444;
-		--recognition-text: var(--text-color);
-		--practice-bg: #4d442a; /* Dark yellow/brown */
-		--practice-border: #665a38;
-		--practice-text: #fff3cd; /* Light yellow text */
-
-		/* Score Indicators */
-		--score-high-bg: #1a4d2e; /* Dark green */
-		--score-high-border: #2a6f47;
-		--score-high-text: #d4edda; /* Light green text */
-		--score-medium-bg: #4d442a; /* Dark yellow/brown */
-		--score-medium-border: #665a38;
-		--score-medium-text: #fff3cd; /* Light yellow text */
-		--score-low-bg: #5a2c32; /* Dark red */
-		--score-low-border: #7e3d45;
-		--score-low-text: #f8d7da; /* Light red text */
-	}
-}
-
-/* --- Using Manual Override Classes --- */
-/* Apply these variables when the specific class is on the <html> tag */
-html.dark-mode {
-	/* General */
-	--bg-color: #121212;
-	--text-color: #e0e0e0;
-	--link-color: #64b5f6;
-	--link-hover-color: #90caf9;
-	/* Container */
-	--container-bg: #1e1e1e;
-	--container-shadow: rgba(255, 255, 255, 0.08);
-	/* Inputs & Controls */
-	--input-border-color: #555;
-	--input-bg: #2a2a2a;
-	--input-text-color: var(--text-color);
-	--label-text-color: var(--text-color);
-	/* Buttons */
-	--button-bg: #64b5f6;
-	--button-text: #121212;
-	--button-hover-bg: #90caf9;
-	--button-disabled-bg: #444444;
-	--button-disabled-text: #888;
-	--button-disabled-cursor: not-allowed;
-	/* Results & Status Areas */
-	--result-area-border: #444;
-	--status-bg: #2c3e50;
-	--status-border: #34495e;
-	--status-text: var(--text-color);
-	--recognition-bg: #333;
-	--recognition-border: #444;
-	--recognition-text: var(--text-color);
-	--practice-bg: #4d442a;
-	--practice-border: #665a38;
-	--practice-text: #fff3cd;
-	/* Score Indicators */
-	--score-high-bg: #1a4d2e;
-	--score-high-border: #2a6f47;
-	--score-high-text: #d4edda;
-	--score-medium-bg: #4d442a;
-	--score-medium-border: #665a38;
-	--score-medium-text: #fff3cd;
-	--score-low-bg: #5a2c32;
-	--score-low-border: #7e3d45;
-	--score-low-text: #f8d7da;
-}
-
-/* Keep light mode explicit for manual override */
-html.light-mode {
-	/* General */
-	--bg-color: #f4f4f4;
-	--text-color: #333;
-	--link-color: #007bff;
-	--link-hover-color: #0056b3;
-	/* Container */
-	--container-bg: #fff;
-	--container-shadow: rgba(0, 0, 0, 0.1);
-	/* Inputs & Controls */
-	--input-border-color: #ccc;
-	--input-bg: #fff;
-	--input-text-color: var(--text-color);
-	--label-text-color: var(--text-color);
-	/* Buttons */
-	--button-bg: #007bff;
-	--button-text: white;
-	--button-hover-bg: #0056b3;
-	--button-disabled-bg: #cccccc;
-	--button-disabled-text: #666;
-	--button-disabled-cursor: not-allowed;
-	/* Results & Status Areas */
-	--result-area-border: #ddd;
-	--status-bg: #e9ecef;
-	--status-border: #ced4da;
-	--status-text: var(--text-color);
-	--recognition-bg: #e2e3e5;
-	--recognition-border: #d6d8db;
-	--recognition-text: var(--text-color);
-	--practice-bg: #fff3cd;
-	--practice-border: #ffeeba;
-	--practice-text: #856404;
-	/* Score Indicators */
-	--score-high-bg: #d4edda;
-	--score-high-border: #c3e6cb;
-	--score-high-text: #155724;
-	--score-medium-bg: #fff3cd;
-	--score-medium-border: #ffeeba;
-	--score-medium-text: #856404;
-	--score-low-bg: #f8d7da;
-	--score-low-border: #f5c6cb;
-	--score-low-text: #721c24;
-}
-
-/* ======================================== */
-/* 3. Apply Variables in Your CSS          */
-/* ======================================== */
-
-/* General styles */
-body {
-	font-family: sans-serif;
-	line-height: 1.6;
-	padding: 20px;
-	background-color: var(--bg-color);
-	color: var(--text-color);
-	transition: var(--theme-transition);
-
-	/* Use Imprima for the main body text, fallback to standard sans-serif */
+body,
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 	font-family: "Imprima", sans-serif;
-	line-height: 1.6;
-	padding: 20px;
-	background-color: var(--bg-color);
-	color: var(--text-color);
+	background: var(--bg);
+	color: var(--text);
 	transition: var(--theme-transition);
 }
 
-.container {
-	max-width: 700px;
-	margin: auto;
-	background: var(--container-bg);
-	padding: 30px;
+.app-shell {
+	display: grid;
+	grid-template-columns: 1fr 320px;
+	height: 100vh;
+}
+
+.content-container {
+	padding: 2rem;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+/* ======================================== */
+/* 4. Sidebar & History                     */
+/* ======================================== */
+.sidebar {
+	background: var(--sidebar-bg);
+	border-left: 1px solid var(--border);
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem;
+	overflow: hidden;
+}
+
+.sidebar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+	gap: 10%;
+}
+
+.history-list {
+	flex: 1;
+	overflow-y: auto;
+}
+
+.history-item {
+	padding: 12px;
+	border-bottom: 1px solid var(--border);
+	font-size: 0.95rem;
+	cursor: pointer;
 	border-radius: 8px;
-	box-shadow: 0 2px 10px var(--container-shadow);
+	margin-bottom: 6px;
 	transition: var(--theme-transition);
+	background: var(--card);
+}
+
+.history-item:hover {
+	background: var(--accent);
+	transform: translateX(-3px);
+}
+
+/* ======================================== */
+/* 5. Inputs & Components                   */
+/* ======================================== */
+.header-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.app-logo {
+	width: 50px;
+	height: 50px;
+	border-radius: 12px;
+	object-fit: cover;
+}
+
+.top-controls {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+select,
+#theme-toggle {
+	background: var(--card);
+	color: var(--text);
+	border: 1px solid var(--border);
+	padding: 8px 12px;
+	border-radius: 8px;
+	font-family: "Imprima", sans-serif;
+	cursor: pointer;
 }
 
 textarea {
+	display: block;
 	font-family: "Klee One", sans-serif;
-	width: 95%;
-	min-height: 100px;
-	padding: 10px;
-	margin-bottom: 15px;
-	border: 1px solid var(--input-border-color);
-	border-radius: 4px;
-	font-size: 1em;
-	background-color: var(--input-bg);
-	color: var(--input-text-color);
-	transition: var(--theme-transition);
+	width: 90%;
+	min-height: 160px;
+	padding: 1.2rem;
+	border-radius: 12px;
+	border: 1px solid var(--border);
+	background: var(--card);
+	color: var(--text);
+	font-size: 1.2rem;
+	resize: none;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	margin: 0 auto;
 }
 
-.controls {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 15px;
-	margin-bottom: 20px;
-	align-items: center;
+/* ======================================== */
+/* 6. Feedback & Coaching                   */
+/* ======================================== */
+.accuracy-circle {
+	font-size: 4rem;
+	text-align: center;
+	color: var(--primary);
+	font-weight: 800;
 }
 
-.controls label {
-	font-weight: bold;
-	margin-right: 5px;
-	color: var(--label-text-color);
-	transition: var(--theme-transition);
+.word-display {
+	font-family: "Klee One", sans-serif;
+	font-size: 1.6rem;
+	padding: 25px;
+	border-radius: 15px;
+	background: var(--card);
+	border: 1px solid var(--border);
+	line-height: 1.8;
 }
 
-.controls select,
-.controls input[type="range"] {
-	padding: 5px;
-	border: 1px solid var(--input-border-color);
-	border-radius: 4px;
-	flex-grow: 1;
-	background-color: var(--input-bg);
-	color: var(--input-text-color);
-	transition: var(--theme-transition);
+.word-correct {
+	color: var(--success);
 }
-/* Specific styling might be needed for range input track/thumb in dark mode */
-
-.controls span {
-	min-width: 30px;
-	text-align: right;
-	color: var(--text-color); /* Use general text color */
-	transition: var(--theme-transition);
-}
-
-.button-group button {
-	padding: 10px 15px;
-	margin-right: 10px;
-	margin-bottom: 10px; /* Keep bottom margin for wrapping */
+.word-missed {
+	color: var(--danger);
+	text-decoration: underline wavy;
 	cursor: pointer;
-	background-color: var(--button-bg);
-	color: var(--button-text);
-	border: none;
-	border-radius: 4px;
-	font-size: 1em;
-	transition: background-color 0.2s ease, color 0.2s ease; /* Keep original simpler transition here */
 }
 
-.button-group button:hover:not(:disabled) {
-	background-color: var(--button-hover-bg);
-}
-
-.button-group button:disabled {
-	background-color: var(--button-disabled-bg);
-	color: var(--button-disabled-text);
-	cursor: var(--button-disabled-cursor);
-}
-
-/* Apply transitions to result areas */
-.results-area > div {
+.coach-box {
 	margin-top: 15px;
-	padding: 12px;
-	border-radius: 4px;
-	border: 1px solid var(--result-area-border);
-	transition: var(--theme-transition);
-}
-
-#status {
-	background-color: var(--status-bg);
-	border-color: var(--status-border);
-	color: var(--status-text);
-}
-
-#recognitionResult {
-	background-color: var(--recognition-bg);
-	border-color: var(--recognition-border);
-	color: var(--recognition-text);
-}
-
-#feedback {
-	font-weight: bold;
-	color: var(--text-color); /* Use general text color */
-	transition: var(--theme-transition);
-}
-
-#practiceWords {
-	background-color: var(--practice-bg);
-	border-color: var(--practice-border);
-	color: var(--practice-text);
-}
-
-.score-high {
-	background-color: var(--score-high-bg);
-	border-color: var(--score-high-border);
-	color: var(--score-high-text);
-}
-
-.score-medium {
-	background-color: var(--score-medium-bg);
-	border-color: var(--score-medium-border);
-	color: var(--score-medium-text);
-}
-
-.score-low {
-	background-color: var(--score-low-bg);
-	border-color: var(--score-low-border);
-	color: var(--score-low-text);
+	padding: 15px;
+	background: var(--accent);
+	border-radius: 10px;
+	border-left: 4px solid var(--primary);
+	color: var(--text);
 }
 
 /* ======================================== */
-/* 4. Style the Toggle (Example)           */
+/* 7. Action Bar & Buttons                 */
 /* ======================================== */
-#theme-toggle {
-	position: fixed;
-	top: 1rem;
-	right: 1rem;
-	background-color: var(--container-bg); /* Use container bg for context */
-	color: var(--text-color);
-	border: 1px solid var(--input-border-color); /* Use input border */
-	padding: 0.5rem;
+
+button {
+	font-family: "Imprima", sans-serif;
+	padding: 14px 20px;
+	border-radius: 10px;
+	border: none;
+	font-weight: 600;
 	cursor: pointer;
-	border-radius: 50%;
-	width: 40px;
-	height: 40px;
+	transition: var(--theme-transition);
+}
+
+.btn-primary {
+	background: var(--primary);
+	color: white;
+}
+.btn-secondary {
+	background: var(--border);
+	color: var(--text);
+}
+.btn-danger {
+	background: var(--danger);
+	color: white;
+}
+.btn-clear {
+	background: transparent;
+	border: 1px solid var(--border);
+	color: var(--text);
+	padding: 5px 10px;
+	font-size: 0.8rem;
+}
+.action-bar {
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	justify-content: center;
-	font-size: 1.2em;
-	z-index: 1000;
-	box-shadow: 0 1px 3px var(--container-shadow); /* Subtle shadow */
-	transition: var(--theme-transition), transform 0.1s ease-out;
+	gap: 50px;
+	margin: 2rem 1rem 0 1rem;
 }
-#theme-toggle:active {
-	transform: scale(0.95); /* Click feedback */
-}
+.controls-row {
+	display: flex;
 
-/* Example: Using text/emoji for icons */
-#theme-toggle::before {
-	content: "☀️"; /* Sun icon */
-	display: block; /* Ensure content takes space */
-	line-height: 1; /* Adjust line height if needed */
+	justify-content: space-between;
+	align-items: center;
+	gap: 50px;
+	margin: 0rem 1rem 0 1rem;
 }
-
-html.dark-mode #theme-toggle::before {
-	content: "🌙"; /* Moon icon */
+.button-group {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 2rem;
 }
-
-/* Hide toggle content if using background images or SVG icons instead */
-/* #theme-toggle span { display: none; } */
+button {
+	flex: 1;
+	padding: 12px;
+	border-radius: 8px;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	transition: filter 0.2s;
+}
+#rateSlider {
+	width: 50%;
+}
+.speed-box {
+	width: 100%;
+}
 
 #floating-image {
 	position: fixed; /* Position relative to the viewport */
@@ -445,7 +289,9 @@ html.dark-mode #theme-toggle::before {
 	z-index: 999; /* Ensure it's above most content, but potentially below modals/popups (adjust if needed) */
 	/* Typically slightly lower than the theme toggle's z-index if you want the toggle on top in case of overlap */
 	opacity: 0.9; /* Optional: Make it slightly transparent */
-	transition: opacity 0.2s ease, transform 0.2s ease; /* Optional: Smooth transitions */
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease; /* Optional: Smooth transitions */
 	border-radius: 4px; /* Optional: Slightly rounded corners */
 }
 
@@ -455,58 +301,20 @@ html.dark-mode #theme-toggle::before {
 	transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-#language-toggle {
-	position: fixed;
-	top: 5rem;
-	right: 1rem;
-	background-color: var(--container-bg); /* Use container bg for context */
-	color: var(--text-color);
-	border: 1px solid var(--input-border-color); /* Use input border */
-	padding: 0.5rem;
-	cursor: pointer;
-	border-radius: 50%;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 1.2em;
-	z-index: 1000;
-	box-shadow: 0 1px 3px var(--container-shadow); /* Subtle shadow */
-	transition: var(--theme-transition), transform 0.1s ease-out;
-}
-
-#language-toggle:active {
-	transform: scale(0.95); /* Click feedback */
-}
-
-/* Example: Using text/emoji for icons */
-#language-toggle::before {
-	content: "🇯🇵"; /* JP icon */
-	display: block; /* Ensure content takes space */
-	line-height: 1; /* Adjust line height if needed */
-}
-
-html.dark-mode #language-toggle::before {
-	content: "🇯🇵"; /* JP icon */
-}
-
-/* Example: Reduce padding on screens smaller than 600px */
-
-@media (max-width: 600px) {
-	body {
-		padding: 10px; /* Reduce body padding */
+/* ======================================== */
+/* 8. Mobile Responsiveness                */
+/* ======================================== */
+@media (max-width: 900px) {
+	.app-shell {
+		grid-template-columns: 1fr;
 	}
-	.container {
-		padding: 15px; /* Reduce container padding */
+	.sidebar {
+		display: none;
 	}
-	/* You could also adjust font sizes if needed */
-	/* body { font-size: 15px; } */
-}
-
-@media (max-width: 400px) {
-	/* Even smaller adjustments if necessary */
-	.container {
-		padding: 10px;
+	.content-container {
+		padding: 1rem;
+	}
+	.action-bar {
+		flex-direction: column;
 	}
 }
