@@ -334,6 +334,15 @@ button:hover {
 /* ======================================== */
 /* 10. Animations & Loading                 */
 /* ======================================== */
+
+#waveformCanvas {
+	width: 90%;
+	height: 80px;
+	border-radius: 12px;
+	margin: 0 1rem;
+	color: var(--bg);
+}
+
 #loadingScanner {
 	text-align: center;
 	margin: 20px 0;

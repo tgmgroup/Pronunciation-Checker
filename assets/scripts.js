@@ -557,11 +557,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 		function draw() {
 			waveformAnimation = requestAnimationFrame(draw);
 			ans.getByteTimeDomainData(data);
-			waveformCtx.fillStyle = "#141414";
+			waveformCtx.fillStyle = "#14141431";
 			waveformCtx.fillRect(0, 0, waveformCanvas.width, waveformCanvas.height);
 			waveformCtx.lineWidth = 2;
 			waveformCtx.strokeStyle = "#4CAF50";
 			waveformCtx.beginPath();
+			waveformCtx.borderRadius = 10;
+			waveformCtx.opacity = 0.8;
 			let x = 0;
 			const slice = waveformCanvas.width / data.length;
 			for (let i = 0; i < data.length; i++) {
