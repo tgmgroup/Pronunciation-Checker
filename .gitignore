@@ -295,4 +295,10 @@ healthchecksdb
 Version-2/
 Version-1.5/
 Backend/
-#### When Version 2 is ready, remove this!
+
+node_modules
+.vercel
+.env
+.DS_Store
+.vercel
+.env*.local

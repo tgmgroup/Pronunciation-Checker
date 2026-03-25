@@ -1,0 +1,19 @@
+{
+	"name": "isesaki-in-ai-pronunciation-coach",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "AI-powered pronunciation coach for language learners",
+	"main": "api/coach.js",
+	"scripts": {
+		"start": "vercel dev",
+		"deploy": "vercel --prod"
+	},
+	"dependencies": {
+		"node-fetch": "^3.3.0"
+	},
+	"devDependencies": {
+		"vercel": "^32.0.0"
+	},
+	"author": "Isesaki.in",
+	"license": "MIT"
+}

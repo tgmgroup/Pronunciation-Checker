@@ -14,7 +14,8 @@
 		<link rel="manifest" href="manifest.json" />
 		<title>Isesaki.in's AI Pronunciation Coach</title>
 		<link rel="stylesheet" href="assets/styles.css" />
-		<script src="https://js.puter.com/v2/"></script>
+		<link rel="manifest" href="/manifest.json" />
+
 		<script>
 			(function () {
 				const t = localStorage.getItem("theme");
@@ -45,10 +46,17 @@
 				</header>
 
 				<section class="input-section">
-					<textarea
+					<div
 						id="textToPractice"
-						placeholder="Enter text to practice..."
-					></textarea>
+						contenteditable="true"
+						placeholder="Type or paste text here to practice..."
+						style="
+							min-height: 150px;
+							border: 1px solid #ccc;
+							padding: 10px;
+							overflow-y: auto;
+						"
+					></div>
 				</section>
 
 				<div class="action-bar">
@@ -63,8 +71,23 @@
 					<button id="stopButton" class="btn-danger" disabled>
 						Stop Checking
 					</button>
+					<button
+						id="aiCheckButton"
+						style="display: none; background-color: #673ab7; color: white"
+					>
+						Deep AI Analysis ✨
+					</button>
+					<button id="replayButton" style="display: none">Replay 🔄</button>
 				</div>
 				<div class="controls-row">
+					<div class="voice-controls">
+						<label for="genderSelect"></label>
+						<select id="genderSelect">
+							<option value="female">Female Coach 👩</option>
+							<option value="male">Male Coach 👨</option>
+						</select>
+					</div>
+					<button id="replayButton" style="display: none">Replay 🔄</button>
 					<div class="speed-box">
 						<label id="ui-label-speed">Reading Speed: </label>
 						<input
@@ -79,6 +102,11 @@
 					</div>
 				</div>
 				<canvas id="waveformCanvas" width="500" height="80"></canvas>
+
+				<div id="loadingScanner" style="display: none">
+					<div class="scanner-line"></div>
+					<p>AI Coach is listening to your recording...</p>
+				</div>
 
 				<div id="resultsArea" style="display: none">
 					<div id="status" class="status-badge">Ready</div>
@@ -96,14 +124,29 @@
 					<button id="clearHistoryBtn" class="btn-clear">Clear</button>
 				</div>
 				<div id="textHistoryList" class="history-list"></div>
-			</aside>
 
-			<img
-				id="floating-image"
-				src="images/mohamed-hassan-Oh3p6Wu3OOE-unsplash.png"
-				alt="Woman wearing headphones speaking into a microphone"
-			/>
+				<img
+					id="floating-image"
+					src="images/mohamed-hassan-Oh3p6Wu3OOE-unsplash.png"
+					alt="Woman wearing headphones speaking into a microphone"
+					onclick="this.style.display = 'none'"
+				/>
+			</aside>
 		</div>
+		<div
+			id="globalPopover"
+			style="
+				position: absolute;
+				display: none;
+				background: #333;
+				color: #fff;
+				padding: 5px 10px;
+				border-radius: 4px;
+				font-size: 14px;
+				z-index: 1000;
+				pointer-events: none;
+			"
+		></div>
 		<script src="assets/scripts.js"></script>
 	</body>
 </html>
