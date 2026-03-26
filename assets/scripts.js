@@ -39,6 +39,13 @@ let htmlElement,
 
 const translationsCache = {};
 
+// --- API Configuration ---
+const API_BASE_URL =
+	window.location.hostname === "localhost" ||
+	window.location.hostname === "127.0.0.1"
+		? "http://localhost:3000" // Local development (usually Vercel Dev runs here)
+		: ""; // Production (Relative path works on Vercel)
+
 // --- 1. Internationalization ---
 const i18n = {
 	en: {
@@ -170,7 +177,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 			window.speechSynthesis.speak(utterance);
 		} else {
 			try {
-				const response = await fetch("/api/speech", {
+				const response = await fetch("${API_BASE_URL}/api/speech", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
@@ -465,7 +472,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		statusDiv.textContent = "Status: AI analyzing flow...";
 
 		try {
-			const res = await fetch("/api/coach", {
+			const res = await fetch("${API_BASE_URL}/api/coach", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -627,7 +634,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		else {
 			showPopover("...");
 			fetch(
-				`/api/translate?text=${encodeURIComponent(word)}&sourceLang=en&targetLang=${targetLang}`,
+				`${API_BASE_URL}/api/translate?text=${encodeURIComponent(word)}&sourceLang=en&targetLang=${targetLang}`,
 			)
 				.then((res) => res.json())
 				.then((data) => {
